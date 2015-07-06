@@ -165,7 +165,7 @@ class Image extends \yii\db\ActiveRecord
 
             if($this->getModule()->graphicsLibrary == 'Imagick'){
                 $image = new \Imagick($imagePath);
-                $image->setImageCompressionQuality(100);
+                $image->setImageCompressionQuality(75);
 
                 if($size){
                     if($size['height'] && $size['width']){
@@ -229,7 +229,7 @@ class Image extends \yii\db\ActiveRecord
                         //throw new Exception($waterMarkPath);
                         if(!file_exists($waterMarkPath)){
                             $waterMark->fit_to_width($wmMaxWidth);
-                            $waterMark->save($waterMarkPath, 100);
+                            $waterMark->save($waterMarkPath, 75);
                             if(!file_exists($waterMarkPath)){
                                 throw new Exception('Cant save watermark to '.$waterMarkPath.'!!!');
                             }
@@ -241,7 +241,7 @@ class Image extends \yii\db\ActiveRecord
 
                 }
 
-                $image->save($pathToSave, 100);
+                $image->save($pathToSave, 75);
             }
 
         return $image;
